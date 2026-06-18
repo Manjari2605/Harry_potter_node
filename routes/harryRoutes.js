@@ -8,7 +8,7 @@ const {
     deleteCharacter
 }=require("../controller/harrypottercontroller");
 const auth =
-require("../middleware/auth");
+require("../middleware/authmiddle");
 rout.post("/add",upload.single("image"), addCharacter);
 rout.get("/get/character/:id", getCharacterById);
 rout.put("/update/character/:id", updateCharacters);
