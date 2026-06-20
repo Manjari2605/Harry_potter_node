@@ -45,6 +45,18 @@ res.status(500).json({
 
     }
 }
+const getCharacters = async (req, res) => {
+    try {
+        const characters = await Character.find();
+
+        res.status(200).json(characters);
+
+    } catch (err) {
+        res.status(500).json({
+            message: err.message
+        });
+    }
+};
 const getCharacterById=async (req,res)=>{
     try{
     const character= await Character.findById(req.params.id);
@@ -88,6 +100,7 @@ const  deleteCharacter= async (req,res)=>{
 module.exports={
     upload,
     addCharacter,
+    getCharacters,
     getCharacterById,
     updateCharacters,
     deleteCharacter,
